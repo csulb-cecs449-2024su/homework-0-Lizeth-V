@@ -17,7 +17,8 @@ void drawPixel(sf::RenderWindow& window, sf::Vector2i position, sf::Color color)
 }
 
 int main() {
-	sf::RenderWindow window{ sf::VideoMode{800, 800}, "SFML Demo" };
+    // VideoMode -> changes the window size width x height
+	sf::RenderWindow window{ sf::VideoMode{1000, 1000}, "SFML Demo" };
 	sf::Clock c;
 	auto last = c.getElapsedTime();
 
@@ -38,7 +39,9 @@ int main() {
 		/*
 		* DRAWING GOES HERE.
 		*/
-		for (auto x = 0; x < 500; x++) {
+        //   x,y corresponds to the origin of the line being draw
+        //   Color changes color :0 much wow
+		for (auto x = 100; x < 500; x++) {
 			auto y = static_cast<int32_t>(2.0 / 3.0 * x + 40);
 			drawPixel(window, sf::Vector2i(x, y), sf::Color::Magenta);
 		}
