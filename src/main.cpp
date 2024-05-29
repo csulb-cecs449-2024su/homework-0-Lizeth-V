@@ -16,6 +16,13 @@ void drawPixel(sf::RenderWindow& window, sf::Vector2i position, sf::Color color)
 	window.draw(pixel.data(), 1, sf::Points);
 }
 
+void drawHorizontalLine(sf::RenderWindow& window, sf::Vector2u start , int len, sf::Color color){
+    std::array<sf::Vertex, 1> pixel = {
+            sf::Vertex(sf::Vector2f(start.x, len), color)
+    };
+    window.draw(pixel.data(),1,sf::Points);
+}
+
 int main() {
     // VideoMode -> changes the window size width x height
 	sf::RenderWindow window{ sf::VideoMode{1000, 1000}, "SFML Demo" };
@@ -44,6 +51,7 @@ int main() {
 		for (auto x = 100; x < 500; x++) {
 			auto y = static_cast<int32_t>(2.0 / 3.0 * x + 40);
 			drawPixel(window, sf::Vector2i(x, y), sf::Color::Magenta);
+            drawHorizontalLine(window, sf::Vector2u(x,y), 234,  sf::Color(255, 199, 42));
 		}
 
 
